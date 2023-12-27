@@ -1,5 +1,5 @@
 # IntersectionRet
-C++ code for colision in rectangles.
+Python code for colision in rectangles.
 
 # Packages
 
