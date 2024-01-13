@@ -30,6 +30,10 @@ public:
         return h;
     }
 
+	std::string getName() {
+        return name;
+    }
+
     std::vector<double> getRectPointsX() {
         return {x, x + w, x + w, x, x};
     }

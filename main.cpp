@@ -1,12 +1,13 @@
 #include <iostream>
 #include <fstream>
+#include<string>
 #include <vector>
 #include <sstream>
-#include <RECTANGLES_H> 
+#include "retclass.cpp"
 
 int main(int argc, char *argv[]) {
 
-    std::vector<retclass::Rectangles> RectLists;
+    std::vector<Rectangles> RectLists;
 
     for (int i = 1; i < argc; ++i) {
         std::ifstream f(argv[i]);
@@ -25,17 +26,19 @@ int main(int argc, char *argv[]) {
             content.push_back(x);
         }
 
-        retclass::Rectangles ret(content[0], content[1], content[2], content[3], "ret" + std::to_string(i));
+        Rectangles ret(content[0], content[1], content[2], content[3], "ret" + std::to_string(i));
         RectLists.push_back(ret);
 
         f.close();
     }
+	
 
-    for (const auto& ret : RectLists) {
+
+    for (Rectangles ret : RectLists) {
         std::cout << "\n\n+++++++++++++++++" << std::endl;
         std::cout << ret.getName() << " Intersections: \n" << std::endl;
 
-        for (const auto& otherRet : RectLists) {
+        for (Rectangles otherRet : RectLists) {
             if (ret.IntersectionWith(otherRet)) {
                 std::cout << otherRet.getName() << std::endl;
             }
